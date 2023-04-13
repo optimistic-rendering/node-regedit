@@ -112,7 +112,8 @@ function execute(args, callback) {
 			err = null
 
 			try {
-				result = JSON.parse(stdout)
+				// result = JSON.parse(stdout)
+				result = JSON.parse(stdout.replace(/[\u0000-\u001F]+/g, ""))
 			} catch (e) {
 				e.stdout = stdout
 				err = e
